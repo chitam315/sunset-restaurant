@@ -1,0 +1,97 @@
+#menupage{
+
+    
+    .slider{
+        width: 100%;
+        --slider-height:50vh;
+    
+        &__title{
+            margin-left: 120px;
+            position: absolute;
+            left: 0;top: 50%;
+            @include text(40px,'ol',54px,$white-cl,none);
+            @include transform(translateY(-50%));
+        }
+    
+        &__note{
+            margin-right: 120px;
+            position: absolute;
+            top: 50%;right: 0;
+            display: flex;
+            @include transform(translateY(-50%));
+    
+            &-1{
+                @include text(16px,'ol',24px,$primary-color,none);
+                position: relative;
+    
+                &::after{
+                    position: absolute;
+                    content: "";
+                    display: block;
+                    width: 4px;height: 4px;
+                    background-color: $primary-color;
+                    right: -8px;top: 50%;
+                    @include transform(translateY(-50%) rotate(45deg));
+                }
+            }
+    
+            &-2{
+                margin-left: 21px;
+                @include text(16px,'ol',24px,$white-cl,none);
+            }
+        }
+    
+        @include md{
+            --slider-height: 25vh;
+        }
+    
+        @include xs{
+            --slider-height: 35vh;
+        }
+    }//xong responsive
+
+    .scfood{
+        background-color: $bgcl-light-blue;
+
+        &__list{
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 52px;
+       
+            &__item{
+                position: relative;
+                width: 100%;height: 0;
+                padding-top: calc(580/670*100%);
+    
+                img{
+                    position: absolute;
+                    width: 100%;height: 100%;
+                    top: 50%;left: 50%;
+                    object-fit: cover;
+                    @include transform(translate(-50%,-50%));
+                }
+    
+                .heading{
+                    position: absolute;
+                    top: 50%;left: 50%;
+                    @include transform(translate(-50%,-50%));
+    
+                    &__title{
+                        @include text(72px, csbi, normal, $white-cl, none);
+                    }
+                }
+            }
+        }
+
+        &__btn{
+            margin: 102px auto 0 auto;
+            background-color: #222D3B;
+
+            &:hover{
+                background-color: $primary-color;
+            }
+        }
+
+    }
+}

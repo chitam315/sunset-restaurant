@@ -73,32 +73,6 @@
         grid-template-columns: repeat(12,1fr);
         gap: var(--grid-gap);
 
-        .sidebar__categories-title{
-            color: $primary-color;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-
-            &::before{
-                display: block;
-                content: "";
-                width: 8px;height: 8px;
-                background-color: $primary-color;
-                @include transform(rotate(45deg));
-                margin-right: 8px;
-            }
-
-            &::after{
-                margin-left: 8px;
-                display: block;
-                content: "";
-                width: 8px;height: 8px;
-                background-color: $primary-color;
-                @include transform(rotate(45deg));
-            }
-        }
-
         .content{
             grid-column: 1/9;
 
@@ -381,6 +355,36 @@
 
         .sidebar{
             grid-column: 10/13;
+            position: sticky;
+            position: -webkit-sticky;
+            top: var(--height-header);
+            height: fit-content;
+
+            &__categories-title{
+                color: $primary-color;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 24px;
+    
+                &::before{
+                    display: block;
+                    content: "";
+                    width: 8px;height: 8px;
+                    background-color: $primary-color;
+                    @include transform(rotate(45deg));
+                    margin-right: 8px;
+                }
+    
+                &::after{
+                    margin-left: 8px;
+                    display: block;
+                    content: "";
+                    width: 8px;height: 8px;
+                    background-color: $primary-color;
+                    @include transform(rotate(45deg));
+                }
+            }
 
             &__contact{
                 width: 100%;
