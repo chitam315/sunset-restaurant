@@ -1,0 +1,78 @@
+#eventpage{
+
+    .slider{
+        width: 100%;
+        --slider-height:50vh;
+
+        &__title{
+            margin-left: 120px;
+            position: absolute;
+            left: 0;top: 50%;
+            @include text(40px,'ol',54px,$white-cl,none);
+            @include transform(translateY(-50%));
+        }
+
+        &__note{
+            margin-right: 120px;
+            position: absolute;
+            top: 50%;right: 0;
+            display: flex;
+            @include transform(translateY(-50%));
+
+            &-1{
+                @include text(16px,'ol',24px,$primary-color,none);
+                position: relative;
+
+                &::after{
+                    position: absolute;
+                    content: "";
+                    display: block;
+                    width: 4px;height: 4px;
+                    background-color: $primary-color;
+                    right: -8px;top: 50%;
+                    @include transform(translateY(-50%) rotate(45deg));
+                }
+            }
+
+            &-2{
+                margin-left: 21px;
+                @include text(16px,'ol',24px,$white-cl,none);
+            }
+        }
+
+        @include md{
+            --slider-height: 25vh;
+        }
+
+        @include xs{
+            --slider-height: 35vh;
+        }
+    }//xong responsive
+
+    .scblog{
+        background-color: $bgcl-light-blue;
+
+        &__list{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: var(--grid-gap);
+        }
+
+        .btn{
+            margin: 64px auto 0 auto;
+        }
+
+        @include md{
+            &__list{
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @include xs{
+            &__list{
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}

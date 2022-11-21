@@ -1,0 +1,16 @@
+Component:
+
+- btn--blue{fs:14; lh:20; h:64; w:206}
+- btn--yellow
+- heading --h1
+- heading --h2
+- text--regular{fs:16; lh:30}
+- text--italic{fs:24; lh:40}
+- header--left
+- header--center
+
+font:
++ raleway{regular} 
++ monsterat{regular, semibold}
++ oswald{regular, light}
++ comorant{semibold italic, italic}

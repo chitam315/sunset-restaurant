@@ -1,0 +1,239 @@
+.header{
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    height: var(--height-header);
+    background-color: $bgcl-light-blue;
+
+    .header__btnmenu{
+        display: none;
+        position: relative;
+        width: 20px;height: 16px;
+        cursor: pointer;
+
+        span{
+            height: 2px;
+            width: 100%;
+            background-color: $white-cl;
+            border-radius: 10px;
+            display: block;
+            margin: 5px 0;
+        }
+
+        &::before{
+            content: "";
+            display: block;
+            height: 2px;
+            width: 20px;
+            background-color: $white-cl;
+            border-radius: 10px;
+        }
+
+        &::after{
+            content: "";
+            display: block;
+            height: 2px;
+            width: 20px;
+            background-color: $white-cl;
+            border-radius: 10px;
+        }
+
+        &:hover::before,&:hover span,&:hover::after{
+            background-color: $primary-color;
+        }
+    }
+
+    .container-fluid{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__nav{
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        ul{
+            height: 100%;
+            display: flex;
+            li{
+                height: 100%;
+                a{
+                    display: block;
+                    text-decoration: none;
+                    color: $white-cl;
+                    height: 100%;
+                    font-size: 14px;
+                    line-height: var(--height-header);
+                    padding: 0 3px;
+                    margin: 0 10px;
+                    transition: $t linear;
+
+                    &.--active{
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &__cta{
+        display: flex;
+
+        &-lang{
+            cursor: pointer;
+            position: relative;
+            
+            .header__language-current{
+                @include text(14px,'or',20px,$white-cl,none);
+                padding: 16px 53px;
+            }
+    
+            .header__language-select{
+                width: 100%;
+                opacity: 0;
+                pointer-events: none;
+                position: absolute;
+                background-color: #000;
+                left: 0;
+                top: 100%;
+                // transform: translateY(100%);
+    
+                a{
+                    text-decoration: none;
+                    text-align: center;
+                    color: #fff;
+                    font-size: 16px;
+                    letter-spacing: 0.05em;
+                    padding: 3px 17px;
+                    display: block;
+                }
+            }
+
+            &.--active{
+
+                .header__language-select{
+                    opacity: 1;
+                    pointer-events: all;
+                }
+            }
+        }
+
+        &-book{
+            //w150,h52
+            background-color: $primary-color;
+            color: $white-cl;
+            font-size: 14px;
+            line-height: 20px;
+            padding: 16px 53px;
+
+        }
+    }
+
+    .nav{
+        opacity: 0;
+        pointer-events: none;
+        transition: $t;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+
+        ul{
+            height: 100%;
+            width: 30%;
+            background-color: #000;
+            li{
+                text-align: center;
+                
+                a{
+                    @include text(14px,mr,30px,$white-cl,none);
+                    text-decoration: none;
+                    position: relative;
+
+                    &.--active{
+                        color: $primary-color;
+                    }
+
+                    &:hover::after,&:hover:before{
+                        display: block;
+                    }
+
+                    &::before{
+                        display: none;
+                        position: absolute;
+                        content: "";
+                        width: 5px;height: 5px;
+                        background-color: $primary-color;
+                        left: -15px;
+                        top: 50%;@include transform(translateY(-50%) rotate(45deg));
+                    }
+
+                    &::after{
+                        display: none;
+                        position: absolute;
+                        content: "";
+                        width: 5px;height: 5px;
+                        background-color: $primary-color;
+                        right: -15px;
+                        top: 50%;@include transform(translateY(-50%) rotate(45deg));
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1300px) {
+        --height-header: 70px;
+
+        .container-fluid{
+            justify-content: space-between;
+        }
+        .header__btnmenu{
+            display: block;
+        }
+        &__nav{
+            display: none;
+        }
+        &__logo{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        &__cta{
+            .header__language-current{
+                // height: var(--height-header);
+            }
+
+            &-book{
+                // height: var(--height-header);
+
+            }
+        }
+        .nav.--active{
+            opacity: 1;
+            pointer-events: all;
+            position: fixed;
+            
+            ul{
+                animation-name: showNav;
+                animation-duration: 0.2s;
+            }
+        }
+
+    }
+
+    @keyframes showNav {
+        from {
+            opacity: 0;
+            width: 0%;
+        }
+        to {
+            opacity: 1;
+            width: 30%;
+        }
+      }
+}

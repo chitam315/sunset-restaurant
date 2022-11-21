@@ -1,0 +1,187 @@
+#aboutuspage{
+
+    .slider{
+        width: 100%;
+        --slider-height: 50vh;
+
+        &__title{
+            margin-left: 120px;
+            position: absolute;
+            left: 0;top: 50%;
+            @include text(40px,'ol',54px,$white-cl,none);
+            @include transform(translateY(-50%));
+        }
+
+        &__note{
+            margin-right: 120px;
+            position: absolute;
+            top: 50%;right: 0;
+            display: flex;
+            @include transform(translateY(-50%));
+
+            &-1{
+                @include text(16px,'ol',24px,$primary-color,none);
+                position: relative;
+
+                &::after{
+                    position: absolute;
+                    content: "";
+                    display: block;
+                    width: 4px;height: 4px;
+                    background-color: $primary-color;
+                    right: -8px;top: 50%;
+                    @include transform(translateY(-50%) rotate(45deg));
+                }
+            }
+
+            &-2{
+                margin-left: 21px;
+                @include text(16px,'ol',24px,$white-cl,none);
+            }
+        }
+
+        @include md{
+            --slider-height: 25vh;
+        }
+
+        @include xs{
+            --slider-height: 35vh;
+        }
+    }
+
+    .infor{
+        background-color: $bgcl-light-blue;
+        padding-top: 230px;
+        padding-bottom: 0;
+
+        .container{
+            display: grid;
+            grid-template-columns: repeat(12,1fr);
+        }
+
+        &__img{
+            grid-column: 1/7;
+        }
+
+        &__box{
+            grid-column: 8/13;
+            
+            &-title{
+                @include text(72px,'ol',80px,$white-cl,none);
+            }
+
+            .text{
+                margin-top: 50px;
+            }
+
+            &-bottom{
+                margin-top: 40px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+                .award{
+                    span{
+                        @include text(40px,'ol',normal,$white-cl,none);
+                    }
+
+                    ul{
+                        margin-top: 9px;
+                        list-style: none;
+                    }
+                }
+
+                .contact{
+                    &__title{
+                        @include text(40px,'ol',normal,$white-cl,none);
+                    }
+
+                    &__email{
+                        margin-top: 9px;
+                    }
+
+                    &__phone{
+                        margin-top: 5px;
+                    }
+
+                    &__social{
+                        margin-top: 45px;
+                    }
+                }
+            }
+        }
+
+        @include sm{
+            .container{
+                display: flex;
+                flex-direction: column;
+            }
+            
+            &__box{
+                order: 1;
+                margin-bottom: 60px;
+            }
+
+            &__img{
+                order: 2;
+            }
+        }
+    }
+
+    .scpicture{
+        background-color: $bgcl-light-blue;
+        padding-top: 239px;
+        padding-bottom: 176px;
+        
+        .container{
+            width: 100%;
+            padding-top: 50%;
+            background: url(../img/aboutus-picture.jpg) no-repeat center center;
+            background-size: cover;
+        }
+    }
+
+    .scexplore{
+        background-color: $bgcl-light-blue;
+        padding-top: 0;
+
+        .container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 24px;
+        }
+            
+        &__item{
+            display: flex;
+
+            &-icon{
+
+                img{
+                    min-width: 58px;
+                }
+
+            }
+
+            &-box{
+                margin-left: 24px;
+            }
+
+            .title{
+                font-family: ol;
+            }
+
+            .des{
+                @include text(16px,mr,30px,$white-cl,none);
+                margin-top: 8px;
+            }
+        }
+
+        @include sm{
+            .container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+}

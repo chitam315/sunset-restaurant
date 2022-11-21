@@ -1,0 +1,387 @@
+#servicepage{
+
+    .slider{
+        width: 100%;
+        --slider-height:50vh;
+
+        &__title{
+            margin-left: 120px;
+            position: absolute;
+            left: 0;top: 50%;
+            @include text(40px,'ol',54px,$white-cl,none);
+            @include transform(translateY(-50%));
+        }
+
+        &__note{
+            margin-right: 120px;
+            position: absolute;
+            top: 50%;right: 0;
+            display: flex;
+            @include transform(translateY(-50%));
+
+            &-1{
+                @include text(16px,'ol',24px,$primary-color,none);
+                position: relative;
+
+                &::after{
+                    position: absolute;
+                    content: "";
+                    display: block;
+                    width: 4px;height: 4px;
+                    background-color: $primary-color;
+                    right: -8px;top: 50%;
+                    @include transform(translateY(-50%) rotate(45deg));
+                }
+            }
+
+            &-2{
+                margin-left: 21px;
+                @include text(16px,'ol',24px,$white-cl,none);
+            }
+        }
+
+        @include md{
+            --slider-height: 25vh;
+        }
+
+        @include xs{
+            --slider-height: 35vh;
+        }
+    }//xong responsive
+
+    .scservice{
+        background-color: $bgcl-light-blue;
+
+        &__list{
+            display: block;
+            margin-top: 80px;
+
+            &-item{
+                --percen-width: 50%;
+                position: relative;
+                width: var(--percen-width); /* half-width */
+                padding-bottom: calc(70*var(--percen-width)/100);
+                margin-right: 54px;
+
+                img{
+                    position: absolute;
+                    width: 100%;height: 100%;
+                    top: 50%;left: 50%;
+                    @include transform(translate(-50%,-50%));
+                }
+
+                span{
+                    @include text(40px,'ol',54px,$white-cl,none);
+                    position: absolute;
+                    top: 50%;left: 50%;
+                    @include transform(translate(-50%,-50%));
+                }
+            }
+        }
+
+        @media (max-width: 1025px){
+            &__list{
+                &-item{
+                    --percen-width: 75%;
+                }
+            }
+        }
+    }//xong responsive
+
+    .scbenefit{
+        background-color: $bgcl-light-blue;
+        padding-top: 0;
+
+        .container{
+            display: grid;
+            grid-template-columns: repeat(12,1fr);
+        }
+
+        &__box{
+            grid-column: 1/6;
+
+            &-list{
+                margin-top: 48px;
+
+                .item{
+                    display: flex;
+                    align-items: center;
+
+                    img{
+                        margin-right: 22px;
+                    }
+
+                    p{
+                        align-self: flex-end;
+                        margin-top: 40px;
+                        @include text(16px,mr,30px,$white-cl,none);
+                    }
+                }
+            }
+        }
+
+        &__img{
+            grid-column: 7/13;
+            width: 100%;padding-top: 102.04%;
+            position: relative;
+
+            .scbenefit__img-banner{
+                position: absolute;
+                width: 100%;height: 100%;
+                top: 50%;left: 50%;
+                @include transform(translate(-50%,-50%));
+                overflow: hidden;
+            }
+
+            &-box{
+                position: absolute;
+                top: 50%;left: 50%;
+                @include transform(translate(-50%,-50%));
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .title{
+                    @include text(72px,csbi,normal,$white-cl,none);
+                    min-width: max-content;
+                    margin-bottom: 16px;
+                }
+
+                .text{
+                    font-family: 'ol';
+                }
+
+                .btn{
+                    background-color: $white-cl;
+                    color: $black-cl;
+                    margin-top: 64px;
+
+                    &:hover{
+                        background-color: $primary-color;
+                    }
+                }
+            }
+
+            .scbenefit__img-circle{
+                position: absolute;
+                bottom: -48px;right: -103px;
+            }
+        }
+
+        @media (max-width: 1025px){
+            .container{
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
+    }//xong responsive
+
+    .scnumber{
+        padding-top: 67px;
+        padding-bottom: 125px;
+        background-color: $bgcl-light-blue;
+
+        .container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: var(--grid-gap);
+        }
+
+        &__item{
+            .number{
+                @include text(60px,'ol',normal,$primary-color,none);
+                text-align: center;
+            }
+
+            .text{
+                @include text(16px,mr,30px,$white-cl,none);
+                margin-top: 8px;
+                text-align: center;
+            }
+        }
+    }
+
+    .scpricing{
+        background-color: #151B20;
+        padding-top: 0;
+
+        .heading{
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 96px 184px 123px;
+            position: relative;
+
+            &::before{
+                position: absolute;
+                content: "price";
+                width: 100%;height: 100%;
+                top: 0;left: 0;
+                background-color: transparent;
+                @include text(240px,'ol',100%,#0E1317,none);
+                text-align: center;
+            }
+
+            &__subtitle,&__title,&__line{
+                position: relative;
+            }
+        }
+
+        &__list{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: var(--grid-gap);
+
+            &-item{
+                display: block;
+                width: 100%;
+                position: relative;
+                margin-top: auto;
+                margin-bottom: auto;
+                transition: $t;
+                text-decoration: none;
+                color: $white-cl;
+
+                &:hover{
+                    @include transform(scale(1.04));
+                    transition: $t;
+                    background-color: $black-cl;
+
+                    .special-item,.circle{
+                        opacity: 1;
+                        pointer-events: all;
+                    }
+                }
+
+                .option{
+                    padding: 40px 0;
+                    border: 1px solid $primary-color;
+                    border-bottom: none;
+                    position: relative;
+                    
+                    div{
+                        text-align: center;
+                    }
+
+                    &__price{
+                        @include text(60px, 'ol', normal, $primary-color, none);
+
+                    }
+
+                    &__unit{
+                        color: $primary-color;
+                    }
+                }
+
+                .infor{
+                    padding: 40px 37px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    border: 1px solid $primary-color;
+                    border-top: none;
+
+                    p:not(:last-of-type){
+                        margin-bottom: 16px;
+                    }
+
+                    .btn{
+                        margin-top: 40px;
+                    }
+                }
+
+                .special-item{
+                    position: absolute;
+                    height: 100%;
+                    left: 0;top: 0;
+                    opacity: 0;
+                    pointer-events: none;
+                }
+
+                .circle{
+                    position: absolute;
+                    top: 50px;right: -23px;
+                    opacity: 0;
+                    pointer-events: none;
+                }
+            }
+        }
+
+        @media (max-width: 1025px){
+            &__list{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+
+                &-item{
+                    width: calc(100%/2 - 15px);
+
+                    &:nth-child(2){
+                        .option{
+                            padding: 17px 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include xs{
+            .heading{
+                width: 100%;
+                height: 337px;
+                padding: 0;
+                justify-content: center;
+            }
+
+            &__list{
+                &-item{
+                    width: 80%;
+                }
+            }
+        }
+    }//xong responsive
+
+    .scphilosophy{
+        background-color: $bgcl-light-blue;
+
+        .container-fluid{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__box{
+            margin: 0 33px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .heading.--h4{
+                font-family: ci;
+                padding-top: 24px;
+                max-width: 485px;
+                text-align: center;
+            }
+
+            .text{
+                margin-top: 63px;
+                max-width: 485px;
+                text-align: center;
+            }
+
+            img{
+                margin-top: 24px;
+            }
+        }
+
+        @media (max-width: 1025px){
+            .container-fluid{
+                justify-content: center;
+
+                >img{
+                    display: none;
+                }
+            }
+        }
+    }//xong responsive
+}
