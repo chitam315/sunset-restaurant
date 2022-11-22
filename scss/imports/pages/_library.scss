@@ -1,0 +1,118 @@
+#librarypage{
+
+    .slider{
+        width: 100%;
+        --slider-height:50vh;
+
+        &__title{
+            margin-left: 120px;
+            position: absolute;
+            left: 0;top: 50%;
+            @include text(40px,'ol',54px,$white-cl,none);
+            @include transform(translateY(-50%));
+        }
+
+        &__note{
+            margin-right: 120px;
+            position: absolute;
+            top: 50%;right: 0;
+            display: flex;
+            @include transform(translateY(-50%));
+
+            &-1{
+                @include text(16px,'ol',24px,$primary-color,none);
+                position: relative;
+
+                &::after{
+                    position: absolute;
+                    content: "";
+                    display: block;
+                    width: 4px;height: 4px;
+                    background-color: $primary-color;
+                    right: -8px;top: 50%;
+                    @include transform(translateY(-50%) rotate(45deg));
+                }
+            }
+
+            &-2{
+                margin-left: 21px;
+                @include text(16px,'ol',24px,$white-cl,none);
+            }
+        }
+
+        @include md{
+            --slider-height: 25vh;
+        }
+
+        @include xs{
+            --slider-height: 35vh;
+        }
+    }//xong responsive
+
+
+    .sclibrary{
+        background-color: $bgcl-light-blue;
+
+        &__option{
+            width: max-content;
+            display: flex;
+            margin: 0 auto;
+            gap: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid $primary-color;
+
+            span{
+                @include text(14px, 'ol', 30px, $white-cl, uppercase);
+                cursor: pointer;
+                position: relative;
+                transition: $t;
+                padding: 0 3px;
+
+                &.--active::after{
+                    width: 100%;
+                }
+                
+                &::after{
+                    content: "";
+                    position: absolute;
+                    width: 0;height: 3px;
+                    bottom: -16px;right: 0;
+                    background-color: $primary-color;
+                    transition: $t;
+                    @include transform(rotate(180deg));
+                }
+
+                &:hover::after{
+                    width: 100%;
+                    left: 0;
+                }
+
+                &:hover{
+                    background-color: $primary-color;
+                }
+            }
+        }
+
+        &__list{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: var(--grid-gap);
+            margin-top: 47px;
+
+            &-item{
+                width: 100%;
+                padding-top: calc(450/384*100%);
+                position: relative;
+                height: 0;
+
+                img{
+                    width: 100%;height: 100%;
+                    position: absolute;
+                    top: 50%;left: 50%;
+                    @include transform(translate(-50%,-50%));
+                    
+                }
+            }
+        }
+    }
+}

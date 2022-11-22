@@ -82,6 +82,10 @@
                     }
                 }
             }
+
+            @include sm{
+                grid-template-columns: 1fr;
+            }
         }
 
         &__btn{

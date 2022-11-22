@@ -6,7 +6,7 @@
 @import "imports/core/components";
 @import "imports/core/libs";
 @import "imports/core/loading";
-@import "imports/core/bootstrap_mini"; // Nếu không Responsive bằng BooTstrap 4 Grid thì không cần import vào.
+// @import "imports/core/bootstrap_mini"; // Nếu không Responsive bằng BooTstrap 4 Grid thì không cần import vào.
 
 /* Navigation, header, footer*/
 @import "imports/core/header";
@@ -22,3 +22,6 @@
 @import "imports/pages/event";
 @import "imports/pages/event-detail";
 @import "imports/pages/menu";
+@import "imports/pages/place";
+@import "imports/pages/place-detail";
+@import "imports/pages//library";
