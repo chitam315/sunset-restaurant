@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = 3000;
 
 // View engine setup
 app.set('view engine', 'html');
