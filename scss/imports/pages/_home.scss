@@ -306,10 +306,8 @@
             grid-template-columns: repeat(3,1fr);
             gap: var(--grid-gap);
             margin-top: 64px;
-        }
-    
-        @include md{
-            &__blog{
+
+            @include md{
                 display: block;
     
                 .blog__item{
@@ -318,15 +316,19 @@
                     margin-right: 30px;
                 }
             }
-        }
-    
-        @include sm{
-            &__blog{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+
+            @include sm{
+                display: grid;
+                grid-template-columns: 1fr;
+
+                .blog__item{
+                    width: 100%;
+                    margin: 0;
+                }
             }
         }
+    
+        
     }
     
     .scbrand{
@@ -348,17 +350,8 @@
             grid-template-columns: repeat(3,1fr);
             gap: var(--grid-gap);
             margin-top: 64px;
-        }
-    
-        &__blog{
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: var(--grid-gap);
-            margin-top: 64px;
-        }
-    
-        @include md{
-            &__blog{
+            
+            @include md{
                 display: block;
     
                 .blog__item{
@@ -367,15 +360,18 @@
                     margin-right: 30px;
                 }
             }
-        }
-    
-        @include sm{
-            &__blog{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+        
+            @include sm{
+                display: grid;
+                grid-template-columns: 1fr;
+
+                .blog__item{
+                    width: 100%;
+                    margin: 0;
+                }
             }
         }
+    
     
         .btn{
             margin: 64px auto 0 auto;
@@ -529,27 +525,32 @@
             grid-template-columns: repeat(12,1fr);
             gap: var(--grid-gap);
         }
-    
+        
         &__form{
+            width: 100%;
             grid-column: 1/7;
-    
             display: flex;
             justify-content: space-between;
             background-color: #151B20;
     
             &-input{
-                padding: 0 32px;
+                width: 60%;
+                padding: 32px;
                 background-color: $bgcl-dark-blue;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
     
                 h4{
                     color: $primary-color;
-                    margin-top: 66px;
                     text-align: center;
                     @include text(24px,mr,40px,$primary-color,none);
                 }
     
                 form{
-                    margin-top: 32px;
+                    width: 100%;
+                    margin: 32px auto 0 auto;
     
                     input{
                         position: relative;
@@ -559,7 +560,7 @@
                         outline: none;
                         padding-bottom: 8px;
                         border-bottom: 1px solid $white-cl;
-                        width: 282px;
+                        width: 100%;
                         margin-bottom: 16px;
                         @include text(14px,mr,30px,$white-cl,none);
     
@@ -621,7 +622,27 @@
                     }
                 }
             }
+
+            @include md{
+                grid-column: 1/8;
+
+                img{
+                    width: 30%;
+                }
+            }
+
+            @include xs{
+                img{
+                    display: none;
+                }
+    
+                &-input{
+                    width: 100%;
+                    padding-bottom: 66px;
+                }
+            }
         }
+            
     
         &__content{
             grid-column: 8/13;
@@ -655,18 +676,6 @@
             .container{
                 display: flex;
                 flex-direction: column-reverse;
-            }
-    
-            &__form{
-                &-input{
-                    form{
-    
-                        input{
-                            width: 400px;
-                        }
-                    }
-    
-                }
             }
         }
     }

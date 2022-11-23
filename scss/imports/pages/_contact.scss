@@ -1,0 +1,246 @@
+#contactpage{
+
+    .slider{
+        width: 100%;
+        --slider-height:50vh;
+
+        &__title{
+            margin-left: 120px;
+            position: absolute;
+            left: 0;top: 50%;
+            @include text(40px,'ol',54px,$white-cl,none);
+            @include transform(translateY(-50%));
+        }
+
+        &__note{
+            margin-right: 120px;
+            position: absolute;
+            top: 50%;right: 0;
+            display: flex;
+            @include transform(translateY(-50%));
+
+            &-1{
+                @include text(16px,'ol',24px,$primary-color,none);
+                position: relative;
+
+                &::after{
+                    position: absolute;
+                    content: "";
+                    display: block;
+                    width: 4px;height: 4px;
+                    background-color: $primary-color;
+                    right: -8px;top: 50%;
+                    @include transform(translateY(-50%) rotate(45deg));
+                }
+            }
+
+            &-2{
+                margin-left: 21px;
+                @include text(16px,'ol',24px,$white-cl,none);
+            }
+        }
+
+        @include md{
+            --slider-height: 25vh;
+        }
+
+        @include xs{
+            --slider-height: 35vh;
+        }
+    }//xong responsive
+
+    .scform{
+        background-color: $bgcl-light-blue;
+    
+        .container{
+            display: grid;
+            grid-template-columns: repeat(12,1fr);
+            gap: var(--grid-gap);
+        }
+        
+        &__form{
+            width: 100%;
+            grid-column: 1/7;
+            display: flex;
+            justify-content: space-between;
+            background-color: #151B20;
+    
+            &-input{
+                width: 60%;
+                padding: 32px;
+                background-color: $bgcl-dark-blue;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+    
+                h4{
+                    color: $primary-color;
+                    text-align: center;
+                    @include text(24px,mr,40px,$primary-color,none);
+                }
+    
+                form{
+                    width: 100%;
+                    margin: 32px auto 0 auto;
+    
+                    input{
+                        position: relative;
+                        display: block;
+                        background-color: $bgcl-dark-blue;
+                        border: none;
+                        outline: none;
+                        padding-bottom: 8px;
+                        border-bottom: 1px solid $white-cl;
+                        width: 100%;
+                        margin-bottom: 16px;
+                        @include text(14px,mr,30px,$white-cl,none);
+    
+                        &::placeholder{
+                            @include text(14px,mr,30px,$white-cl,none)
+                        }
+    
+                    }
+                    
+                    #date::-webkit-calendar-picker-indicator{
+                        opacity: 0;
+                        pointer-events: all;
+                        cursor: pointer;
+                    }
+    
+                    #date::after{
+                        content: '';
+                        position: absolute;
+                        width: 12px;height: 12px;
+                        right: 0;
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                        pointer-events: none;
+                        background: url(../img/icon-calendar.svg) center center;
+                    }
+    
+                    #time::-webkit-calendar-picker-indicator{
+                        opacity: 0;
+                        pointer-events: all;
+                        cursor: pointer;
+                    }
+    
+                    #time::after{
+                        content: '';
+                        position: absolute;
+                        width: 12px;height: 12px;
+                        right: 0;
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                        pointer-events: none;
+                        background: url(../img/icon-time-picker.svg) no-repeat center center;
+                    }
+    
+                    select{
+                        width: 100%;
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        @include text(14px,mr,30px,$white-cl,none);
+                        padding-bottom: 8px;
+                        border-bottom: 1px solid $white-cl;
+                        margin-bottom: 16px;
+                    }
+    
+                    .btn{
+                        width: 100%;
+                        text-align: center;
+                        margin-top: 32px;
+                    }
+                }
+            }
+
+            @include md{
+                grid-column: 1/8;
+
+                img{
+                    width: 30%;
+                }
+            }
+
+            @include xs{
+                img{
+                    display: none;
+                }
+    
+                &-input{
+                    width: 100%;
+                    padding-bottom: 66px;
+                }
+            }
+        }
+            
+    
+        &__content{
+            grid-column: 8/13;
+    
+            .text{
+                margin-top: 24px;
+            }
+    
+            &-contact{
+                margin-top: 16px;
+
+                .item{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 13px;
+
+                    img{
+                        margin-right: 22px;
+                    }
+
+                    .box{
+
+                        p{
+                            @include text(24px, 'ol', 40px, $white-cl, none);
+                        }
+
+                        span{
+                            @include text(16px, mr, 30px, $white-cl, none);
+                        }
+                    }
+                }
+            }
+
+            .social__list{
+                margin-top: 16px;
+            }
+        }
+    
+        @media (max-width: 1100px){
+            .container{
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
+    }//xong responsive
+
+    .scmap{
+        background-color: $bgcl-light-blue;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .container-fluid{
+            position: relative;
+            height: 0;
+            padding-top: calc(468/1380*100%);
+            overflow: hidden;
+            
+            iframe{
+                width: calc(100% - var(--gap)*2);
+                height: 100%;
+                position: absolute;
+                top: 0;left: 50%;
+                @include transform(translateX(-50%));
+                filter: grayscale(100%);
+                -webkit-filter: grayscale(100%);
+            }
+        }
+    }
+}

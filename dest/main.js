@@ -194,6 +194,27 @@ function increaseNumberServicePage() {
     }
 }
 
+function tabLibrary(){
+    let optionList = document.querySelectorAll('.sclibrary__option span');
+    let listImgList = document.querySelectorAll('.sclibrary__list');
+    
+    if(optionList.length != 0 & listImgList.length != 0){
+        optionList.forEach((ele,index) => {
+            ele.addEventListener('click',() => {
+                if(!ele.classList.contains('--active')){
+                    optionList.forEach((ele) => ele.classList.remove('--active'));
+                    ele.classList.add('--active');
+
+                    listImgList.forEach((ele) => ele.classList.remove('--active'));
+                    listImgList[index].classList.add('--active');
+                }
+            })
+        })
+    }
+}
+
+tabLibrary()
+
 scrollFunction()
 
 nav()
