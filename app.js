@@ -1,12 +1,18 @@
-const http = require('http');
-const port = process.env.PORT || 3000
+var express = require('express');
+var app = express();
+var PORT = process.env.PORT || 3000;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  res.end('<h1>Hello World</h1>');
-});
+// View engine setup
+app.set('view engine', 'html');
 
-server.listen(port,() => {
-  console.log(`Server running at port `+port);
+// Without middleware
+app.get('/', function(req, res){
+
+	// Rendering home.ejs page
+	res.render('index');
+})
+
+app.listen(PORT, function(err){
+	if (err) console.log(err);
+	console.log("Server listening on PORT", PORT);
 });
