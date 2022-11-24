@@ -220,6 +220,10 @@
 
     }
 
+    @include xs{
+        --height-header: 40px;
+    }
+
     @keyframes showNav {
         from {
             opacity: 0;
