@@ -101,7 +101,6 @@
                 background-color: #000;
                 left: 0;
                 top: 100%;
-                // transform: translateY(100%);
     
                 a{
                     text-decoration: none;
@@ -131,6 +130,11 @@
             line-height: 20px;
             padding: 16px 53px;
 
+        }
+
+        @include xs{
+            opacity: 0;
+            pointer-events: none;
         }
     }
 
@@ -202,16 +206,6 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-        }
-        &__cta{
-            .header__language-current{
-                // height: var(--height-header);
-            }
-
-            &-book{
-                // height: var(--height-header);
-
-            }
         }
         .nav.--active{
             opacity: 1;
