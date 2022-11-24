@@ -565,7 +565,8 @@
                         @include text(14px,mr,30px,$white-cl,none);
     
                         &::placeholder{
-                            @include text(14px,mr,30px,$white-cl,none)
+                            @include text(14px,mr,30px,$white-cl,none);
+                            text-align:left;
                         }
                     }
                     
@@ -602,6 +603,7 @@
                         @include transform(translateY(-50%));
                         pointer-events: none;
                         background: url(../img/icon-time-picker.svg) no-repeat center center;
+                        background-size: cover;
                     }
     
                     select{
