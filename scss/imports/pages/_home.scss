@@ -588,6 +588,7 @@
                     }
     
                     #time::-webkit-calendar-picker-indicator{
+                        background: none;
                         opacity: 0;
                         pointer-events: all;
                         cursor: pointer;
