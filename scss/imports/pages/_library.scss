@@ -2,41 +2,45 @@
 
     .slider{
         width: 100%;
-        --slider-height:50vh;
+        --slider-height: 50vh;
 
-        &__title{
-            margin-left: 120px;
+        &__content{
             position: absolute;
-            left: 0;top: 50%;
-            @include text(40px,'ol',54px,$white-cl,none);
+            top: 50%;left: 0;
             @include transform(translateY(-50%));
-        }
-
-        &__note{
-            margin-right: 120px;
-            position: absolute;
-            top: 50%;right: 0;
+            width: 100%;
             display: flex;
-            @include transform(translateY(-50%));
+            align-items: center;
+            justify-content: space-between;
 
-            &-1{
-                @include text(16px,'ol',24px,$primary-color,none);
-                position: relative;
-
-                &::after{
-                    position: absolute;
-                    content: "";
-                    display: block;
-                    width: 4px;height: 4px;
-                    background-color: $primary-color;
-                    right: -8px;top: 50%;
-                    @include transform(translateY(-50%) rotate(45deg));
-                }
+            &-title{
+                margin-left: 120px;
+                @include text(40px,'ol',54px,$white-cl,none);
             }
-
-            &-2{
-                margin-left: 21px;
-                @include text(16px,'ol',24px,$white-cl,none);
+    
+            &-note{
+                margin-right: 120px;
+                display: flex;
+    
+                .note-1{
+                    @include text(16px,'ol',24px,$primary-color,none);
+                    position: relative;
+    
+                    &::after{
+                        position: absolute;
+                        content: "";
+                        display: block;
+                        width: 4px;height: 4px;
+                        background-color: $primary-color;
+                        right: -8px;top: 50%;
+                        @include transform(translateY(-50%) rotate(45deg));
+                    }
+                }
+    
+                .note-2{
+                    margin-left: 21px;
+                    @include text(16px,'ol',24px,$white-cl,none);
+                }
             }
         }
 
@@ -46,8 +50,23 @@
 
         @include xs{
             --slider-height: 35vh;
+
+            &__content{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                &-title{
+                    margin: 0;
+                }
+
+                &-note{
+                    margin: 0;
+                    margin-top: 10px;
+                }
+            }
         }
-    }//xong responsive
+    }
 
 
     .sclibrary{
