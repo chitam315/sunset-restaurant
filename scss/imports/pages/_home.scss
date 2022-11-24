@@ -645,9 +645,9 @@
                     display:block;
 
                     /* Solution 1 */
-                    -webkit-appearance: textfield;
-                    -moz-appearance: textfield;
-                    min-width: 95%;
+                    -moz-appearance: none;
+                    min-width: 100%;
+                    -webkit-appearance: none;
                 }
             }
         }
