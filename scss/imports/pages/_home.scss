@@ -568,15 +568,6 @@
                             @include text(14px,mr,30px,$white-cl,none)
                         }
                     }
-
-                    #date,#time{
-                        display:block;
-  
-                        /* Solution 1 */
-                        -webkit-appearance: textfield;
-                        -moz-appearance: textfield;
-                        min-width: 95%;
-                    }
                     
                     #date::-webkit-calendar-picker-indicator{
                         opacity: 0;
@@ -648,6 +639,15 @@
                 &-input{
                     width: 100%;
                     padding-bottom: 66px;
+                }
+
+                #date,#time{
+                    display:block;
+
+                    /* Solution 1 */
+                    -webkit-appearance: textfield;
+                    -moz-appearance: textfield;
+                    min-width: 95%;
                 }
             }
         }
